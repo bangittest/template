@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="header_backcloud">
+        <header class="header">
+            <h1>REKKEI_ACADEMY_SHOP</h1>
+            <div class="header_text">
+                <input style="padding: 6px 20px" type="text" name="text" id="" placeholder="Tim kiem theo ten san pham" />
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="header_nav_list">
+                <ul class="header_nav_list_1">
+                    <li class="header_nav_list_2">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <a href="">Gio hang</a>
+                    </li>
+                    <li style="color: white" class="header_nav_list_2">
+                        <a href="">Dang nhap</a>
+                    </li>
+                    <li class="header_nav_list_2"><a href="">Dang ky</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="nav">
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+        <div class="slide">
+            <div class="slide_list">
+                <h3 style="width: 100px">
+                    <i class="fa-solid fa-list"></i> Danh muc san pham
+                </h3>
+                <ul>
+                    <li>Tat ca san pham</li>
+                    <li>Thiet bi dien tu</li>
+                    <li>Sach</li>
+                    <li>Do tieu dung</li>
+                    <li>Thoi trang</li>
+                </ul>
+            </div>
+            <div class="slide__end1">
+                <img width="100px" style="margin-top: 10px" class="slide_end_anh1" src="image/iphone11promax.jpg" alt="" />
+                <div>
+                    <h4>Iphone 12 Pro Max</h4>
+                    <p>35.000.000d &emsp13;<i class="fa-solid fa-cart-shopping"></i></p>
+                    <div class="slide_en2">
+                        <p><img src="image/traitym.png" alt="" />Apple</p>
+                        <p>48 da ban <br />Ha noi</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide__end2">
+                <img width="100px" style="border-radius: 5px; margin-top: 10px" class="slide_end_anh1" src="image/DacNhanTam.jpg" alt="" />
+                <div>
+                    <h4>Dac nhan tam</h4>
+                    <p>56.100d &emsp13;<i class="fa-solid fa-cart-shopping"></i></p>
+                    <div class="slide_en2">
+                        <p>
+                            <img src="image/traitym.png" alt="" />
+                        </p>
+                        <p>16498 da ban <br />Ha noi</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide__end3">
+                <img width=" 100px " style="border-radius: 5px; margin:0px 27px;
+          slide_end_anh1 " src="image/haohao.jpg " alt=" " />
+                <div>
+                    <h4>Thung my Hao Hao</h4>
+                    <p>108.000d &emsp13;<i class="fa-solid fa-cart-shopping"></i></p>
+                    <div class="slide_en2">
+                        <p>
+                            <img src="image/traitym.png " alt=" " />
+                        </p>
+                        <p>14905 da ban <br />Ho Chi Minh</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide__end4">
+                <img width="100px " class="slide_end_anh1" src="image/BiaHeineken.jpg " alt=" " />
+                <div>
+                    <h4>Thung bia Heineken</h4>
+                    <p>405.000d &emsp13;<i class="fa-solid fa-cart-shopping"></i></p>
+                    <div class="slide_en2">
+                        <p>
+                            <img src="image/traitym.png " alt=" " />
+                        </p>
+                        <p>
+                            6843 da ban <br /> Ho Chi Minh
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide__end5">
+                <img width="100px " class="slide_end_anh1" style="margin-top: 10px" src="image/sunlight.jpg " alt=" " />
+                <div>
+                    <h4>Nuoc rua chen Sunlight</h4>
+                    <p>91.000d &emsp13;<i class="fa-solid fa-cart-shopping"></i></p>
+                    <div class="slide_en2">
+                        <p>
+                            <img src="image/traitym.png " alt=" " />
+                        </p>
+                        <p>
+                            3516 da ban <br /> Ho Chi Minh
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="hra" />
+    </div>
+    <footer class="footer">
+        <div>
+            <h3>CHAM SOC KHACH HANG</h3>
+            <p>Trung tam tro giup</p>
+            <p>Huong dan mua hang</p>
+        </div>
+        <div>
+            <h3>GIOI THIEU</h3>
+            <p>Dieu khoan</p>
+            <p>Chinh sach bao mat</p>
+            <p>Tuyen dung</p>
+        </div>
+        <div>
+            <h3>DANH MUC MUA SAN PHAM</h3>
+            <p>Thoi trang</p>
+            <p>Do tieu dung</p>
+            <p>Thiet bi dien tu</p>
+            <p>Sach</p>
+        </div>
+        <div>
+            <h3>THEO DOI CHUNG TOI</h3>
+            <p><i class="fa-brands fa-square-facebook"></i> Facebook</p>
+            <p><i class="fa-brands fa-square-instagram"></i> Intagram</p>
+            <p><i class="fa-brands fa-square-twitter"></i> Twitter</p>
+        </div>
+        <div>
+            <h3>DOI NGU PHAT TRIEN</h3>
+            <p>Tinh Quoc Hai</p>
+        </div>
+    </footer>
+    <hr class="hre" />
+</body>
+
+</html>

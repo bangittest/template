@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Expense Tracker</h1>
+
+    <div class="container">
+        <div class="income-tracker">
+            <h2>Income Tracker</h2>
+            <div class="add-income-form">
+                <input type="text" id="income-input" placeholder="Thêm khoản thu nhập">
+                <input type="number" id="income-amount" placeholder="Số tiền">
+                <button id="add-income-button">Thêm</button>
+            </div>
+            <div class="income-list">
+                <h3>Danh sách thu nhập</h3>
+                <ul id="income-list"></ul>
+            </div>
+            <div class="income-summary">
+                <h3>Tổng thu nhập</h3>
+                <div id="income-total"></div>
+            </div>
+        </div>
+
+        <div class="expense-tracker">
+            <h2>Expense Tracker</h2>
+            <div class="add-expense-form">
+                <input type="text" id="expense-input" placeholder="Thêm khoản chi tiêu">
+                <input type="number" id="expense-amount" placeholder="Số tiền">
+                <button id="add-expense-button">Thêm</button>
+            </div>
+            <div class="expense-list">
+                <h3>Danh sách chi tiêu</h3>
+                <ul id="expense-list"></ul>
+            </div>
+            <div class="expense-summary">
+                <h3>Tổng chi tiêu</h3>
+                <div id="expense-total"></div>
+            </div>
+        </div>
+
+        <div class="all-tracker">
+            <h2>All</h2>
+            <div class="all-list">
+                <h3>Danh sách tất cả</h3>
+                <ul id="all-list"></ul>
+            </div>
+            <div class="all-summary">
+                <h3>Tổng thu nhập - chi tiêu</h3>
+                <div id="all-total"></div>
+            </div>
+        </div>
+    </div>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .income-tracker,
+        .expense-tracker,
+        .all-tracker {
+            flex-basis: 30%;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        .add-income-form,
+        .add-expense-form {
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        .add-income-form input,
+        .add-expense-form input {
+            flex-grow: 1;
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        .add-income-form button,
+        .add-expense-form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .income-list,
+        .expense-list,
+        .all-list {
+            margin-bottom: 10px;
+        }
+
+        .income-list h3,
+        .expense-list h3,
+        .all-list h3 {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .income-summary,
+        .expense-summary,
+        .all-summary {
+            text-align: center;
+        }
+
+        .income-summary h3,
+        .expense-summary h3,
+        .all-summary h3 {
+            margin-top: 0;
+        }
+
+        .income-summary div,
+        .expense-summary div,
+        .all-summary div {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 2px solid #4CAF50;
+        }
+    </style>
+
+    <script>
+        // Load data from Local Storage
+        function loadData() {
+            const incomeData = JSON.parse(localStorage.getItem('income')) || [];
+            const expenseData = JSON.parse(localStorage.getItem('expense')) || [];
+
+            return {
+                income: incomeData,
+                expense: expenseData
+            };
+        }
+
+        // Save data to Local Storage
+        function saveData(data) {
+            localStorage.setItem('income', JSON.stringify(data.income));
+            localStorage.setItem('expense', JSON.stringify(data.expense));
+        }
+
+        // Update income list
+        function updateIncomeList() {
+            const incomeList = document.getElementById('income-list');
+            incomeList.innerHTML = '';
+
+            const data = loadData().income;
+            for (const item of data) {
+                const li = document.createElement('li');
+                li.textContent = item;
+                incomeList.appendChild(li);
+            }
+        }
+
+        // Update expense list
+        function updateExpenseList() {
+            const expenseList = document.getElementById('expense-list');
+            expenseList.innerHTML = '';
+
+            const data = loadData().expense;
+            for (const item of data) {
+                const li = document.createElement('li');
+                li.textContent = item;
+                expenseList.appendChild(li);
+            }
+        }
+
+        // Update income total
+        function updateIncomeTotal() {
+            const incomeTotal = document.getElementById('income-total');
+
+            const data = loadData().income;
+            const total = data.reduce((acc, curr) => acc + parseFloat(curr), 0);
+            incomeTotal.textContent = total.toFixed(2) + ' $';
+        }
+
+        // Update expense total
+        function updateExpenseTotal() {
+            const expenseTotal = document.getElementById('expense-total');
+
+            const data = loadData().expense;
+            const total = data.reduce((acc, curr) => acc + parseFloat(curr), 0);
+            expenseTotal.textContent = total.toFixed(2) + ' $';
+        }
+
+        // Update all list
+        function updateAllList() {
+            const allList = document.getElementById('all-list');
+            allList.innerHTML = '';
+
+            const incomeData = loadData().income;
+            const expenseData = loadData().expense;
+            const data = [...incomeData, ...expenseData];
+
+            for (const item of data) {
+                const li = document.createElement('li');
+                li.textContent = item;
+                allList.appendChild(li);
+            }
+        }
+
+        // Update all total
+        function updateAllTotal() {
+            const allTotal = document.getElementById('all-total');
+
+            const incomeData = loadData().income;
+            const expenseData = loadData().expense;
+            const incomeTotal = incomeData.reduce((acc, curr) => acc + parseFloat(curr), 0);
+            const expenseTotal = expenseData.reduce((acc, curr) => acc + parseFloat(curr), 0);
+            const total = (incomeTotal - expenseTotal).toFixed(2);
+            allTotal.textContent = total + ' $';
+        }
+
+        // Add income
+        function addIncome() {
+            const incomeInput = document.getElementById('income-input');
+            const incomeAmount = document.getElementById('income-amount');
+
+            const income = incomeInput.value.trim();
+            const amount = incomeAmount.value.trim();
+
+            if (income && amount) {
+                const data = loadData();
+                data.income.push(amount);
+
+                saveData(data);
+
+                incomeInput.value = '';
+                incomeAmount.value = '';
+
+                updateIncomeList();
+                updateIncomeTotal();
+                updateAllList();
+                updateAllTotal();
+            }
+        }
+
+        // Add expense
+        function addExpense() {
+            const expenseInput = document.getElementById('expense-input');
+            const expenseAmount = document.getElementById('expense-amount');
+
+            const expense = expenseInput.value.trim();
+            const amount = expenseAmount.value.trim();
+
+            if (expense && amount) {
+                const data = loadData();
+                data.expense.push(amount);
+
+                saveData(data);
+
+                expenseInput.value = '';
+                expenseAmount.value = '';
+
+                updateExpenseList();
+                updateExpenseTotal();
+                updateAllList();
+                updateAllTotal();
+            }
+        }
+
+        // Event listeners
+        document.getElementById('add-income-button').addEventListener('click', addIncome);
+        document.getElementById('add-expense-button').addEventListener('click', addExpense);
+
+        // Initial data loading and UI update
+        updateIncomeList();
+        updateIncomeTotal();
+        updateExpenseList();
+        updateExpenseTotal();
+        updateAllList();
+        updateAllTotal();
+    </script>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

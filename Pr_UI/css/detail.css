@@ -1,0 +1,128 @@
+/* ... (phần CSS khác) ... */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.checkout {
+    background-color: #f9f9f9;
+    padding: 2rem 0;
+}
+
+.checkout .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cart-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.cart-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.customer-info {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 35%;
+}
+
+.customer-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.customer-info form {
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-info label {
+    margin-bottom: 5px;
+}
+
+.customer-info input,
+.customer-info textarea {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.customer-info button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 100px;
+    align-self: flex-end;
+}
+
+.customer-info button:hover {
+    background-color: #222;
+}
+
+
+/*  */
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.cart-table th,
+.cart-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.cart-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.cart-table td:last-child {
+    text-align: center;
+}
+
+.cart-table button {
+    background-color: #ff6464;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 3px;
+    min-width: 40px;
+}
+
+.cart-table button:hover {
+    background-color: #d64040;
+}

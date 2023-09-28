@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài Khoản</title>
+    <link rel="stylesheet" href="./css/start.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="form_login" class="form_scope">
+            <h2>Login</h2>
+            <form action="" id="login">
+                <div class="form_group">
+                    <label for="username-log">Username: </label>
+                    <input type="text" placeholder="minhnguyen245" id="username-log">
+                    <p class="error-message" id="username-log-error"></p>
+                </div>
+                <div class="form_group">
+                    <label for="password-log">Password: </label>
+                    <input type="password" placeholder="******" id="password-log">
+                    <p class="error-message" id="password-log-error"></p>
+                </div>
+                <div class="btn_group">
+                    <button class="btn btn_signup" type="submit">Login</button>
+                    <p class="link" onclick="toggleForm()">Sign Up</p>
+                </div>
+            </form>
+        </div>
+
+        <div id="form_register" class="form_scope hiden">
+            <h2>Register</h2>
+            <form action="" id="register">
+                <div class="form_group">
+                    <label for="firstname">First Name: </label>
+                    <input type="text" placeholder="nguyen" id="firstname">
+                    <p class="error-message" id="firstname-error"></p>
+                </div>
+                <div class="form_group">
+                    <label for="lastname">Last Name: </label>
+                    <input type="text" placeholder="minh" id="lastname">
+                    <p class="error-message" id="lastname-error"></p>
+                </div>
+                <div class="form_group">
+                    <label for="username-reg">Username: </label>
+                    <input type="text" placeholder="minhnguyen245" id="username-reg">
+                    <p class="error-message" id="username-reg-error"></p>
+                </div>
+                <div class="form_group">
+                    <label for="email">Email: </label>
+                    <input type="email" placeholder="minhnguyen98@gmail.com" id="email">
+                    <p class="error-message" id="email-error"></p>
+                </div>
+                <div class="form_group">
+                    <label for="password-reg">Password: </label>
+                    <input type="password" placeholder="******" id="password-reg">
+                    <p class="error-message" id="password-reg-error"></p>
+                </div>
+                <div class="form_group">
+                    <label for="confirm-password">Confirm Password: </label>
+                    <input type="password" placeholder="******" id="confirm-password">
+                    <p class="error-message" id="confirm-password-error"></p>
+                </div>
+                <div class="form_group img_scope">
+                    <label for="avatar" class="label_avatar btn">Avatar</label>
+                    <input type="file" accept="image/*" multiple="false" id="avatar" hidden>
+                    <img src="" alt="" id="avatar-preview">
+                </div>
+                <div class="btn_group">
+                    <button class="btn btn_signup" type="submit">Sign Up</button>
+                    <p class="link" onclick="toggleForm()">Login</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="./js/start.js"></script>
+</body>
+
+</html>

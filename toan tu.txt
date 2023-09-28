@@ -1,0 +1,10 @@
+=: == or ===
+khác: != or !==
++: +
+-: -
+*: *
+/: /
+%==0: chia lay phan du
+ kiểm tra tính chẵn/lẻ của một số nguyên, biểu thức điều kiện là “number
+% 2 == 0
+

@@ -1,0 +1,259 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Todo-list</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    #todo-form {
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    #todo-input {
+        flex-grow: 1;
+        padding: 5px;
+    }
+
+    #add-todo-button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .todo-item {
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+    }
+
+    .todo-item .todo-text {
+        flex-grow: 1;
+    }
+
+    .todo-item .edit-button,
+    .todo-item .delete-button {
+        margin-left: 10px;
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 3px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    .container {
+        width: 400px;
+        text-align: center;
+        background-color: #f44336;
+        margin: 0 auto;
+    }
+
+    .add-todo-button {
+        display: none !important;
+    }
+
+
+    button {
+        display: none !important;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Todo-list</h1>
+        <input type="radio" name="" id="radio">
+        <ul id="todo-list"></ul>
+        <div id="todo-form">
+
+            <input type=" text" id="todo-input" placeholder="Thêm công việc">
+            <button id="add-todo-button">Thêm</button>
+        </div>
+
+    </div>
+    <script>
+
+        let input = document.getElementById("todo-input");
+        input.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("add-todo-button").click();
+            }
+        });
+        // Kiểm tra nếu danh sách công việc chưa tồn tại trong Local Storage
+        if (!localStorage.getItem('todos')) {
+            // Tạo một mảng rỗng và lưu vào Local Storage
+            localStorage.setItem('todos', JSON.stringify([]));
+        }
+
+        // Lấy danh sách công việc từ Local Storage
+        function getTodos() {
+            return JSON.parse(localStorage.getItem('todos'));
+        }
+
+        // Lưu danh sách công việc vào Local Storage
+        function saveTodos(todos) {
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+
+        // Thêm công việc mới
+        function addTodo() {
+            const todoInput = document.getElementById('todo-input');
+            const todoText = todoInput.value.trim();
+            if (todoText !== '') {
+                const todos = getTodos();
+                const newTodo = { id: Date.now(), text: todoText };
+                todos.push(newTodo);
+                saveTodos(todos);
+                renderTodoList();
+                todoInput.value = '';
+            }
+        }
+
+        // Xóa công việc
+        function deleteTodo(todoId) {
+            const todos = getTodos();
+            const updatedTodos = todos.filter(todo => todo.id !== todoId);
+            saveTodos(updatedTodos);
+            renderTodoList();
+        }
+
+        // Xử lý sự kiện click nút "Thêm"
+        const addTodoButton = document.getElementById('add-todo-button');
+        addTodoButton.addEventListener('click', addTodo);
+
+        // Xử lý sự kiện nhấn phím Enter trong input
+        const todoInput = document.getElementById('todo-input');
+        todoInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                addTodo();
+            }
+        });
+
+        // Xử lý sự kiện click nút "Xóa"
+        function handleDeleteButtonClick(event) {
+            const todoId = parseInt(event.target.dataset.todoId);
+            deleteTodo(todoId);
+        }
+
+        // Render lại danh sách công việc
+        function renderTodoList() {
+            const todoList = document.getElementById('todo-list');
+            const todocheck = document.getElementById("add-todo-button")
+            todoList.innerHTML = '';
+            todocheck.innerHTML = "";
+
+            const todos = getTodos();
+            todos.forEach(todo => {
+                const todoItem = document.createElement('li');
+                todoItem.className = 'todo-item';
+
+                const todoText = document.createElement('span');
+                todoText.className = 'todo-text';
+                todoText.innerText = todo.text;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.className = 'delete-button';
+                deleteButton.innerText = 'Xóa';
+                deleteButton.setAttribute('data-todo-id', todo.id);
+                deleteButton.addEventListener('click', handleDeleteButtonClick);
+
+                todoItem.appendChild(todoText);
+                todoItem.appendChild(deleteButton);
+                todoList.appendChild(todoItem);
+            });
+        }
+        function myFunction() {
+            // Get the checkbox
+            let boxDelete = document.querySelectorAll("button")
+            var checkBox = document.getElementById("myCheck");
+            // If the checkbox is checked, display the output text
+            for (const value of boxDelete) {
+                console.log(value);
+                if (checkBox.checked == true) {
+                    value.style.display = "block";
+                } else {
+                    value.style.display = "none";
+                }
+            }
+
+        }
+// Render danh sách công việc ban đầu```
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="giaodien">
+            <div class="todo_list">
+                <ul id="lists">
+
+                </ul>
+
+            </div>
+
+        </div>
+        <form action="" id="form">
+            <input type="text" name="" id="">
+        </form>
+    </div>
+    <script>
+        function read() {
+            const todos = JSON.parse(localStorage.getItem("bt1_todo")) || []
+            let stringHTML = ""
+            todos.forEach()(todos => {
+                stringHTML += `
+                <input type="radio" name="todo">
+                <span class="text">${todo.name}</span>
+                <button>X</button>`
+            })
+            document.getElementById("form")
+        }
+        read()
+
+        document.getElementById("form").addEventListener("sumit", function (e) {
+            e.preventDefault()
+            const todos = JSON.parse(localStorage.getItem("bt1_todo")) || []
+            let id = null
+            if (todos.length == 0) {
+                id = 1
+            } else {
+                id = todos[todos.length - 1].id + 1
+            }
+            const todo = {
+                id: id,
+                name: inputTodo.value
+            }
+        })
+    </script>
+</body>
+
+</html>
